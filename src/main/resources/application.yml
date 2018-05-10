@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    producer:
+      #请求完整性条件 all 最可靠 性能最低，发送时阻塞
+      acks: all
+      #发送小时失败 重试次数 设置0 避免出现重复消息
+      retries: 0
+      #指定单次请求缓冲大小
+      batch-size: 16384
+      #缓冲区最大值
+      buffer-memory: 33554432
+      #compression-type: 压缩格式
+    consumer:
+      #消费者分组
+      group-id: test
+    #kafka机器地址
+    bootstrap-servers: localhost:9090,localhost:9091,localhost:9092
